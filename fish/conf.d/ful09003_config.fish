@@ -22,7 +22,7 @@ function load_1pass_aws
   set VAULT "Dev Stuff"
   set IName "AWS Access"
   export AWS_ACCESS_KEY_ID=(op read "op://$VAULT/$IName/Access Key")
-  export AWS_SECRET_KEY_ID=(op read "op://$VAULT/$IName/Secret Key")
+  export AWS_SECRET_ACCESS_KEY=(op read "op://$VAULT/$IName/Secret Key")
 
   echo "go get that bread :3"
 end
