@@ -56,10 +56,10 @@ If the new path's directories does not exist, create them."
 
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
-# Map ibuffer to list-buffers :heart_eyes:
+;; Map ibuffer to list-buffers :heart_eyes:
 (global-set-key [remap list-buffers] 'ibuffer)
 
-# LSP!
+;; LSP!
 (require 'lsp-mode)
 (add-hook 'go-mode-hook #'lsp-deferred)
 
@@ -69,3 +69,7 @@ If the new path's directories does not exist, create them."
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;; exec-path-from-shell so that maybe PATH will actually work when I change it hehe
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
