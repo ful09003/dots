@@ -1,9 +1,11 @@
 ;; Do not show splash
-
 (setq inhibit-startup-message t)
 
 ;; Display line numbers in every buffer
 (global-display-line-numbers-mode 1)
+
+;; Display column numbers too
+;; TODO: Figure out how to enable that!
 
 ;; theme
 (load-theme 'modus-vivendi t)
@@ -53,3 +55,17 @@ If the new path's directories does not exist, create them."
  )
 
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+
+# Map ibuffer to list-buffers :heart_eyes:
+(global-set-key [remap list-buffers] 'ibuffer)
+
+# LSP!
+(require 'lsp-mode)
+(add-hook 'go-mode-hook #'lsp-deferred)
+
+;; Set up before-save hooks to format buffer and add/delete imports.
+;; Make sure you don't have other gofmt/goimports hooks enabled.
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
