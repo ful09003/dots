@@ -46,7 +46,7 @@ If the new path's directories does not exist, create them."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(leuven-dark))
- '(package-selected-packages '(nov)))
+ '(package-selected-packages '(magit nov)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -69,7 +69,10 @@ If the new path's directories does not exist, create them."
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+(add-hook 'go-mode-hook #'smartparens-mode)
 
 ;; exec-path-from-shell so that maybe PATH will actually work when I change it hehe
 (when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+(when (daemonp)
   (exec-path-from-shell-initialize))
