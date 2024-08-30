@@ -12,7 +12,7 @@
  '(display-line-numbers-minor-tick 5)
  '(global-hl-line-mode t)
  '(inhibit-startup-screen t)
- '(package-selected-packages '(magit nov.el nov))
+ '(package-selected-packages '(lsp-mode magit nov.el nov))
  '(require-final-newline t)
  '(scroll-bar-mode nil)
  '(show-trailing-whitespace t))
