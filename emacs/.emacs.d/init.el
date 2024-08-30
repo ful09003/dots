@@ -25,3 +25,11 @@
 ;; File type associations w/ mode
 ;; https://depp.brause.cc/nov.el/
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+
+;; https://emacs-lsp.github.io/lsp-mode/page/installation/
+(require 'lsp-mode)
+(add-hook 'go-mode-hook' #'lsp-deffered)
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
