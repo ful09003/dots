@@ -21,3 +21,7 @@
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Customizations.html
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
+
+;; File type associations w/ mode
+;; https://depp.brause.cc/nov.el/
+(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
