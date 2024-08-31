@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(backup-directory-alist '(("." . "/home/michael/Documents/backups")))
  '(column-number-mode t)
+ '(default-frame-alist '((undecorated . t)))
  '(delete-old-versions t)
  '(dired-free-space 'first)
  '(display-line-numbers 'relative)
@@ -22,4 +23,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "gray27" :foreground "lemon chiffon" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight ultra-light :height 98 :width normal :foundry "UKWN" :family "Monaspace Argon")))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "gray27" :foreground "lemon chiffon" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight ultra-light :height 98 :width normal :foundry "UKWN" :family "Monaspace Argon"))))
+ '(mode-line ((t (:box (:line-width (1 . -1) :style pressed-button) :foreground "navy" :background "violet")))))
