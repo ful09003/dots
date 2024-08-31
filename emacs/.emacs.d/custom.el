@@ -15,7 +15,8 @@
  '(package-selected-packages '(company flycheck lsp-ui lsp-mode magit nov.el nov))
  '(require-final-newline t)
  '(scroll-bar-mode nil)
- '(show-trailing-whitespace t))
+ '(show-trailing-whitespace t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
