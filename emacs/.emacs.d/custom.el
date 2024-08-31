@@ -24,4 +24,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :extend nil :stipple nil :background "gray27" :foreground "lemon chiffon" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight ultra-light :height 98 :width normal :foundry "UKWN" :family "Monaspace Argon"))))
+ '(highlight ((t (:background "firebrick" :foreground "yellow" :weight bold))))
  '(mode-line ((t (:box (:line-width (1 . -1) :style pressed-button) :foreground "navy" :background "violet")))))
