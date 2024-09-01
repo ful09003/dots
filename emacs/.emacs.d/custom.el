@@ -13,6 +13,7 @@
  '(display-line-numbers-minor-tick 5)
  '(fido-mode t)
  '(global-hl-line-mode t)
+ '(global-subword-mode t)
  '(global-superword-mode t)
  '(inhibit-startup-screen t)
  '(package-selected-packages '(company flycheck lsp-ui lsp-mode magit nov.el nov))
