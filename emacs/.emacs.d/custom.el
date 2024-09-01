@@ -19,7 +19,7 @@
  '(global-superword-mode t)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(yasnippet lsp-treemacs company flycheck lsp-ui lsp-mode magit nov.el nov))
+   '(go-mode yasnippet lsp-treemacs company flycheck lsp-ui lsp-mode magit nov.el nov))
  '(require-final-newline t)
  '(scroll-bar-mode nil)
  '(show-trailing-whitespace t)
