@@ -11,6 +11,7 @@
  '(display-line-numbers t)
  '(display-line-numbers-major-tick 10)
  '(display-line-numbers-minor-tick 5)
+ '(fido-mode t)
  '(global-hl-line-mode t)
  '(inhibit-startup-screen t)
  '(package-selected-packages '(company flycheck lsp-ui lsp-mode magit nov.el nov))
