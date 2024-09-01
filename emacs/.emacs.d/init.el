@@ -18,6 +18,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; Use ibuffer
+(global-set-key [remap list-buffers] 'ibuffer)
+
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Customizations.html
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
