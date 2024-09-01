@@ -8,7 +8,7 @@
  '(default-frame-alist '((undecorated . t)))
  '(delete-old-versions t)
  '(dired-free-space 'first)
- '(display-line-numbers 'relative)
+ '(display-line-numbers t)
  '(display-line-numbers-major-tick 10)
  '(display-line-numbers-minor-tick 5)
  '(global-hl-line-mode t)
@@ -23,6 +23,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "gray27" :foreground "lemon chiffon" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight ultra-light :height 98 :width normal :foundry "UKWN" :family "Monaspace Argon"))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "dark slate gray" :foreground "lavender blush" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "UKWN" :family "Monaspace Argon"))))
  '(highlight ((t (:background "firebrick" :foreground "yellow" :weight bold))))
  '(mode-line ((t (:box (:line-width (1 . -1) :style pressed-button) :foreground "navy" :background "violet")))))
