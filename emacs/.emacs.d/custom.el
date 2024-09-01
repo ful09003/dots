@@ -11,6 +11,7 @@
  '(display-line-numbers t)
  '(display-line-numbers-major-tick 10)
  '(display-line-numbers-minor-tick 5)
+ '(electric-pair-mode t)
  '(fido-mode t)
  '(fido-vertical-mode t)
  '(global-hl-line-mode t)
@@ -18,7 +19,7 @@
  '(global-superword-mode t)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(lsp-treemacs company flycheck lsp-ui lsp-mode magit nov.el nov))
+   '(yasnippet lsp-treemacs company flycheck lsp-ui lsp-mode magit nov.el nov))
  '(require-final-newline t)
  '(scroll-bar-mode nil)
  '(show-trailing-whitespace t)
