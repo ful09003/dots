@@ -20,6 +20,9 @@
 
 ;; Use ibuffer
 (global-set-key [remap list-buffers] 'ibuffer)
+;; bind C-x o to M-o
+(global-set-key (kbd "M-o") 'other-window)
+
 
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Customizations.html
 (setq custom-file (concat user-emacs-directory "custom.el"))
