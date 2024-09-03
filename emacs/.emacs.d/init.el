@@ -25,7 +25,7 @@
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
-
+(add-hook 'go-mode-hook #'yas-minor-mode)
 
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Customizations.html
 (setq custom-file (concat user-emacs-directory "custom.el"))
