@@ -18,6 +18,8 @@
  '(global-subword-mode t)
  '(global-superword-mode t)
  '(inhibit-startup-screen t)
+ '(org-todo-keywords
+   '((sequence "TODO" "THINKING" "PLANNING" "HACKING" "VALIDATING" "|" "DONE" "ABANDONED")))
  '(package-selected-packages
    '(go-mode yasnippet lsp-treemacs company flycheck lsp-ui lsp-mode magit nov.el nov))
  '(require-final-newline t)

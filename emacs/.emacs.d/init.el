@@ -10,11 +10,15 @@
 (global-set-key [remap list-buffers] 'ibuffer)
 ;; bind C-x o to M-o
 (global-set-key (kbd "M-o") 'other-window)
-
+;; https://orgmode.org/worg/org-configs/org-customization-guide.html
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
 
 ;; File type associations w/ mode
 ;; https://depp.brause.cc/nov.el/
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 ;; https://emacs-lsp.github.io/lsp-mode/page/installation/
 (require 'lsp-mode)
@@ -30,3 +34,4 @@
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Customizations.html
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
+
