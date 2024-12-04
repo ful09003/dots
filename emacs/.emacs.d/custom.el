@@ -18,6 +18,7 @@
  '(global-hl-line-mode t)
  '(global-subword-mode t)
  '(global-superword-mode t)
+ '(global-visual-line-mode t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message ":3")
  '(org-todo-keywords
