@@ -52,7 +52,8 @@ DWIM means:
 (tool-bar-mode -1)
 
 (use-package nerd-icons
-  :ensure t)
+  :ensure t
+  :custom (nerd-icons-font-family "Symbols Nerd Font Mono"))
 
 (use-package nerd-icons-completion
   :ensure t
@@ -149,3 +150,50 @@ DWIM means:
   :ensure t
   :bind
   (("C-x g" . magit-status)))
+
+;; For org mode, hl-todo and org-modern
+(use-package hl-todo
+  :ensure t)
+(use-package org-modern
+  :ensure t
+  :custom
+  (org-modern-hide-stars nil)
+  (org-modern-table nil)
+   (org-modern-list 
+   '(;; (?- . "-")
+     (?* . "•")
+     (?+ . "‣")))
+  :hook
+  (org-mode . org-modern-mode)
+  (org-agenda-finalize . org-modern-agenda))
+(setq
+ org-auto-align-tags nil
+ org-tags-column 0
+ org-catch-invisible-edits 'show-and-error
+ org-special-ctrl-a/e t
+ org-insert-heading-respect-content t
+ org-hide-emphasis-markers t
+ org-pretty-entities t
+ org-agent-tags-column 0
+ org-ellipsis "..."
+ org-startup-indented t
+ ;; do not add newlines before entries 
+ org-black-before-new-entry '((heading . nil) (plain-list-item . nil)))
+;; org-modern-indent for nice indentation w/ org-modern
+(use-package org-modern-indent
+  :straight (org-modern-indent :type git :host github :repo "jdtsmith/org-modern-indent")
+  :config
+  (add-hook 'org-mode-hook #'org-modern-indent-mode 90))
+
+;; instead of suffering at the hands of my own theme attempts, use the beautiful (to me) standard-themes
+
+(use-package standard-themes
+  :ensure t)
+(mapc #'disable-theme custom-enabled-themes)
+(set-face-attribute 'default nil :family "JuliaMono" :height 135 :weight 'light)
+(setq standard-themes-bold-constructs t
+      standard-dark-tinted-palette-overrides
+      '((bg-main "#44355B") ;original is #182440
+	))
+(load-theme 'standard-dark-tinted :no-confirm)
+
