@@ -141,6 +141,7 @@ DWIM means:
   (setq trashed-date-format "%Y-%m-%d %H:%M:%S"))
 
 ;; my own configs, starting here
+
 ;; rebind other-window (C-x o) to M-o for convenience
 (global-set-key (kbd "M-o") 'other-window)
 ;; rebind C-x C-b to buffer-menu so that I can select buffer in current window
@@ -150,6 +151,10 @@ DWIM means:
   :ensure t
   :bind
   (("C-x g" . magit-status)))
+
+;; nov.el
+(use-package nov
+  :ensure t)
 
 ;; For org mode, hl-todo and org-modern
 (use-package hl-todo
@@ -185,8 +190,34 @@ DWIM means:
   :config
   (add-hook 'org-mode-hook #'org-modern-indent-mode 90))
 
-;; instead of suffering at the hands of my own theme attempts, use the beautiful (to me) standard-themes
+;; org-mode configs
+;; https://github.com/james-stoup/emacs-org-mode-tutorial, does not implement all of that.
+;; org states
+(setq org-capture-templates
+      '(
+	("n" "Note"
+	 entry (file+headline "~/Documents/notes/random.org" "Random Thoughts")
+	 "** %?"
+	 :empty-lines 0)
+	("g" "General TODO"
+	 entry (file+headline "~/Documents/notes/todos.org" "General TODOs")
+	 "* TODO [#B] %?\n:Created: %T\n "
+	 :empty-lines 0)
+	("c" "Content-specific TODO"
+	 entry (file+headline "~/Documents/notes/todos.org" "Content-Specific TODOs")
+	 "* TODO [#B] %?\n:Created: %T\n%i\n%a\nCommentary: "
+	 :empty-lines 0)
+	 )
+      org-todo-keywords
+	'(
+	  (sequence "TODO(t)" "PLANNING(p)" "IN-PROGRESS(i@/!)" "VERIFYING(v!)" "BLOCKED(b@)" "|" "DONE(d!)" "RIP(r@/!)"))
+	)
 
+;; auto-mode config
+(add-to-list 'auto-mode-alist '(
+				"\\.epub\\'" . nov-mode))
+
+;; instead of suffering at the hands of my own theme attempts, use the beautiful (to me) standard-themes
 (use-package standard-themes
   :ensure t)
 (mapc #'disable-theme custom-enabled-themes)
@@ -197,3 +228,26 @@ DWIM means:
 	))
 (load-theme 'standard-dark-tinted :no-confirm)
 
+;; TRAMP-related; https://coredumped.dev/2025/06/18/making-tramp-go-brrrr./
+(setq remote-file-name-inhibit-locks t
+      tramp-use-scp-direct-remote-copying t
+      remote-file-name-inhibit-auto-save t
+      tramp-copy-size-limit (* 1024 1024) ;; 1MB
+      tramp-verbose 2)
+
+(connection-local-set-profile-variables
+ 'remote-direct-async-process
+ '((tramp-direct-async-process . t)))
+
+(connection-local-set-profiles
+ '(:application tramp :protocol "scp")
+ 'remote-direct-async-process)
+
+(setq magit-tramp-pipe-stty-settings 'pty)
+
+(with-eval-after-load 'tramp
+  (with-eval-after-load 'compile
+    (remove-hook 'compilation-mode-hook #'tramp-compile-disable-ssh-controlmaster-options)))
+
+;; Start in fullscreen :bless:
+(add-hook 'window-setup-hook #'toggle-frame-fullscreen)
