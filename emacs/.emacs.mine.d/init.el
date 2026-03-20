@@ -268,3 +268,46 @@
   :config
   (exec-path-from-shell-initialize))
 
+;; LSP/IDE-type things
+;; https://emacs-lsp.github.io/lsp-mode/page/installation/
+(require 'lsp-mode)
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (
+	 (go-mode . lsp)
+	 (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+;; optional LSP/IDE-type things
+;; https://emacs-lsp.github.io/lsp-mode/page/installation/
+(use-package yasnippet
+  :ensure t)
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
+(use-package lsp-treemacs
+  :ensure t
+  :commands lsp-treemacs-errors-list)
+(use-package dap-mode
+  :ensure t
+  :config
+  (require 'dap-dlv-go))
+;;(use-package dap-dlv-go
+;;  :ensure t)
+(require 'dap-dlv-go)
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
+;; language-specific configs
+;; golang (https://go.dev/gopls/editor/emacs)
+(add-hook 'go-mode-hook #'lsp-deferred)
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+(lsp-register-custom-settings
+ '(("gopls.completeUnimported" t t)
+   ("gopls.staticcheck" t t)))
