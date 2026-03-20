@@ -166,7 +166,7 @@
   (org-agenda-finalize . org-modern-agenda))
 
 (use-package org-modern-indent
-  :straight (org-modern-indent :type git :host github :repo "jdtsmith/org-modern-indent")
+  :load-path "~/Documents/development/src/github.com/jdtsmith/org-modern-indent/"
   :config
   (add-hook 'org-mode-hook #'org-modern-indent-mode 90))
 
