@@ -259,3 +259,12 @@
   (when (boundp 'pixel-scroll-precision-mode)
     (advice-add 'pixel-scroll-precision :before #'ellama-disable-scroll))
   (advice-add 'end-of-buffer :after #'ellama-enable-scroll))
+
+;; Packages
+;; Inheret PATH from my shell, alternatively could just modify desktop units for Emacs
+;; but 'meh'
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
+
