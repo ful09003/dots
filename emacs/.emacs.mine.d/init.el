@@ -245,10 +245,10 @@
   (setopt ellama-keymap-prefix "C-c e")
   (setopt ellama-provider
           (make-llm-openai-compatible
-           :url "http://smookerton.lan:8000/api/v1"
-           :chat-model "Qwen3-Coder-Next-GGUF"
-           :key "butts"
-           :default-chat-non-standard-params '(("num_ctx" . 8192))))
+           :url "http://smookerton.lan:54403/v1"
+           :chat-model "Qwen3-Coder-Next"
+           :key "butts"))
+;;           :default-chat-non-standard-params '(("num_ctx" . ))))
   (setopt ellama-chat-display-action-function #'display-buffer-full-frame)
   (setopt ellama-instant-display-action-function #'display-buffer-at-bottom)
   :config
