@@ -269,6 +269,7 @@
   :config
   (exec-path-from-shell-initialize))
 
-(require 'custom-ide)
+(use-package custom-ide
+  :ensure nil)
 
 ;;; init.el ends here
