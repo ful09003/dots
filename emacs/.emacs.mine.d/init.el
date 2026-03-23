@@ -273,5 +273,7 @@
 
 (use-package custom-ide
   :ensure nil)
+(use-package custom-media
+  :ensure nil)
 
 ;;; init.el ends here
