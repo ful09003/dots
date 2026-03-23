@@ -27,3 +27,8 @@ function ensure_paths
 
   echo "all done, current PATH: $PATH"
 end
+
+# Golang development dependencies
+function go_dev_deps
+  go install golang.org/x/tools/gopls@latest
+end
