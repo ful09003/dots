@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+;;; Comments:
 ;; Starting here, using https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration/
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)

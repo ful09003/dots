@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -28,12 +29,7 @@
  '(inhibit-startup-screen t)
  '(initial-scratch-message
    ";; This buffer is for text that is not saved, and for Lisp evaluation.\12;; To create a file, visit it with \\[find-file] and enter text in its buffer.\12\12Now go slay some dragons, get that bread, whatever you need you ABSOLUTE BADDIE\12")
- '(package-selected-packages
-   '(catppuccin-theme company corfu dap-mode dired-subtree ellama
-		      exec-path-from-shell flycheck hl-todo lsp-ui magit
-		      marginalia nerd-icons-completion nerd-icons-corfu
-		      nerd-icons-dired nov orderless org-modern standard-themes
-		      trashed vertico yasnippet))
+ '(package-selected-packages nil)
  '(shell-kill-buffer-on-exit t)
  '(show-trailing-whitespace t))
 (custom-set-faces
