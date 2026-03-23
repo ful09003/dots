@@ -1,22 +1,6 @@
 echo -n "Setting abbrs (ful09003_config).."
 abbr ga 'git add'
 abbr mtrr 'mtr -nrc 10'
-abbr aurs 'cd ~/Documents/development/aurs'
-
-function get_aur
-  set AURPATH_BASE $HOME/Documents/development/aurs
-  set AURPATH_DESIRED $AURPATH_BASE/$argv
-
-  if test -d $AURPATH_BASE/$argv
-     cd $AURPATH_DESIRED
-     echo "updating AUR in $(pwd)..."
-     git pull
-     prevd
-  else
-    echo "fetching new AUR..."
-    git clone https://aur.archlinux.org/$argv.git    
-  end
-end
 
 function load_1pass_aws
   set VAULT "Dev Stuff"
@@ -25,4 +9,14 @@ function load_1pass_aws
   export AWS_SECRET_ACCESS_KEY=(op read "op://$VAULT/$IName/Secret Key")
 
   echo "go get that bread :3"
+end
+
+# 'Alternatively, fish also automatically executes a function called fish_user_key_bindings if it exists.'
+# Primarily added to address https://github.com/fish-shell/fish-shell/issues/12122, which should be fixed in a future release
+function fish_user_key_bindings
+  bind alt-backspace backward-kill-word
+  bind ctrl-alt-h backward-kill-word
+  bind ctrl-backspace backward-kill-token
+  bind alt-delete kill-word
+  bind ctrl-delete kill-token
 end
