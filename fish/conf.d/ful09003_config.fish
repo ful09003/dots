@@ -20,3 +20,10 @@ function fish_user_key_bindings
   bind alt-delete kill-word
   bind ctrl-delete kill-token
 end
+
+# ensure_paths sets paths I continually forget about when reimaging a machine.
+function ensure_paths
+  fish_add_path /usr/local
+
+  echo "all done, current PATH: $PATH"
+end
