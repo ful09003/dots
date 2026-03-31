@@ -29,7 +29,14 @@
  '(inhibit-startup-screen t)
  '(initial-scratch-message
    ";; This buffer is for text that is not saved, and for Lisp evaluation.\12;; To create a file, visit it with \\[find-file] and enter text in its buffer.\12\12Now go slay some dragons, get that bread, whatever you need you ABSOLUTE BADDIE\12")
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(catppuccin-theme company corfu csharp-mode dictionary dired-subtree
+		      editorconfig elixir-ts-mode ellama empv
+		      exec-path-from-shell faceup hl-todo less-css-mode lua-mode
+		      magit marginalia markdown-ts-mode nerd-icons-completion
+		      nerd-icons-corfu nerd-icons-dired nov orderless org
+		      org-modern peg timeout tramp transient trashed vertico
+		      wallpaper which-key yasnippet))
  '(shell-kill-buffer-on-exit t)
  '(show-trailing-whitespace t))
 (custom-set-faces
