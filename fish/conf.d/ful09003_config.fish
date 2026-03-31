@@ -24,6 +24,7 @@ end
 # ensure_paths sets paths I continually forget about when reimaging a machine.
 function ensure_paths
   fish_add_path /usr/local/go/bin
+  fish_add_path ~/go/bin
 
   echo "all done, current PATH: $PATH"
 end
