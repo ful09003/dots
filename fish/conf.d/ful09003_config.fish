@@ -33,3 +33,9 @@ end
 function go_dev_deps
   go install golang.org/x/tools/gopls@latest
 end
+
+function local_cc_env
+  export ANTHROPIC_AUTH_TOKEN="butts"
+  export ANTHROPIC_API_KEY=""
+  export ANTHROPIC_BASE_URL="http://smookerton.lan:54403"
+end
