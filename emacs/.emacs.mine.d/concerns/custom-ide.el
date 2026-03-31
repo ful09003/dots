@@ -31,6 +31,16 @@
   (yas-global-mode 1))
 
 ;; languages
+(use-package dockerfile-ts-mode
+  :ensure nil
+  :after treesit
+  :hook
+  (dockerfile-ts-mode . eglot-ensure)
+  :init
+  (add-to-list 'treesit-language-source-alist '(dockerfile "https://github.com/camdencheek/tree-sitter-dockerfile"))
+  :mode (("\\Dockerfile\\'" . dockerfile-ts-mode)
+	 ("\\docker-compose.yaml\\'" . dockerfile-ts-mode)))
+
 (use-package go-ts-mode
   :ensure nil
   :after treesit
@@ -44,16 +54,26 @@
   (add-to-list 'treesit-language-source-alist '(gomod "https://github.com/camdencheek/tree-sitter-go-mod"))
   ;; (dolist (lang '(go gomod)) (treesit-install-language-grammar lang))
   (add-to-list 'auto-mode-alist '("\\.go\\'" . go-ts-mode))
-  (add-to-list 'auto-mode-alist '("/go\\.mod\\'" . go-mod-ts-mode))
-  :config
-  (reformatter-define go-format
-		      :program "goimports"
-		      :args '("/dev/stdin")))
+  (add-to-list 'auto-mode-alist '("/go\\.mod\\'" . go-mod-ts-mode)))
+;;  :config
+;;  (reformatter-define go-format
+;;		      :program "goimports"
+;;		      :args '("/dev/stdin")))
 
 (use-package eglot
   :ensure t
   :custom
   (eglot-autoshutdown t))
+
+;; Tweaks to eglot LSP programs
+(use-package eglot
+  :no-require t
+  :config
+  (add-to-list 'eglot-server-programs
+	       '((dockerfile-mode dockerfile-ts-mode) . ("docker-language-server" "start" "--stdio"
+							 :initializationOptions
+							 (:telemetry "off"
+							  :dockercomposeExperimental (:composeSupport t))))))
 
 (provide 'custom-ide)
 
