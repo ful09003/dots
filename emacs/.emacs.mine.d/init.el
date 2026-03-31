@@ -268,6 +268,8 @@
 ;; but 'meh'
 (use-package exec-path-from-shell
   :ensure t
+  :custom
+  (shell-file-name "/usr/bin/fish")
   :config
   (exec-path-from-shell-initialize))
 
