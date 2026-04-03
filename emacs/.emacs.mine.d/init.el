@@ -8,6 +8,8 @@
 (package-initialize)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+;; Specific bits of config under concerns/ directory, so ensure that directory
+;; is included when looking up package names
 (add-to-list 'load-path (expand-file-name "concerns" user-emacs-directory))
 
 (when (< emacs-major-version 29)
@@ -50,34 +52,43 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+;; Requires nerd font mono to be installed
+;; (usually under .local/share/fonts/symbolsnerdfont)
+;; https://github.com/rainstormstudio/nerd-icons.el
 (use-package nerd-icons
   :ensure t
   :custom (nerd-icons-font-family "Symbols Nerd Font Mono"))
 
+;; https://github.com/rainstormstudio/nerd-icons-completion
 (use-package nerd-icons-completion
   :ensure t
   :after marginalia
   :config
   (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
 
+;; https://github.com/LuigiPiucco/nerd-icons-corfu
 (use-package nerd-icons-corfu
   :ensure t
   :after corfu
   :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
+;; https://github.com/rainstormstudio/nerd-icons-dired
 (use-package nerd-icons-dired
   :ensure t
   :hook (dired-mode . nerd-icons-dired-mode))
 
+;; https://github.com/minad/vertico
 (use-package vertico
   :ensure t
   :hook (after-init . vertico-mode))
 
+;; https://github.com/minad/marginalia
 (use-package marginalia
   :ensure t
   :hook (after-init . marginalia-mode))
 
+;; https://github.com/oantolin/orderless
 (use-package orderless
   :ensure t
   :config
@@ -85,6 +96,7 @@
   (setq completion-category-defaults nil)
   (setq completion-category-overrides nil))
 
+;; https://github.com/minad/corfu
 (use-package corfu
   :ensure t
   :hook (after-init . global-corfu-mode)
@@ -106,7 +118,7 @@
   :ensure nil
   :hook (after-init . savehist-mode))
 
-;;; Dired & friends
+;; Dired & friends
 (use-package dired
   :ensure nil
   :commands (dired)
@@ -128,6 +140,7 @@
   :config
   (setq dired-subtree-use-backgrounds nil))
 
+;; https://github.com/shingo256/trashed
 (use-package trashed
   :ensure t
   :commands (trashed)
@@ -142,20 +155,24 @@
 (global-set-key (kbd "C-x C-b") #'buffer-menu)
 
 ;;; Git
+;; https://magit.vc/
 (use-package magit
   :ensure t
   :bind (("C-x g" . magit-status)))
 
 ;;; EPUB reader
+;; https://depp.brause.cc/nov.el/
 (use-package nov
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
 
 ;;; Org mode
+;; https://github.com/tarsius/hl-todo
 (use-package hl-todo
   :ensure t)
 
+;; https://github.com/minad/org-modern
 (use-package org-modern
   :ensure t
   :custom
@@ -237,6 +254,7 @@
 (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
 
 ;;; LLM / Ellama
+;; https://github.com/s-kostyaev/ellama
 (use-package ellama
   :ensure t
   :bind ("C-c e" . ellama)
@@ -266,6 +284,7 @@
 ;; Packages
 ;; Inheret PATH from my shell, alternatively could just modify desktop units for Emacs
 ;; but 'meh'
+;; https://github.com/purcell/exec-path-from-shell
 (use-package exec-path-from-shell
   :ensure t
   :custom
