@@ -60,6 +60,9 @@
 ;;		      :program "goimports"
 ;;		      :args '("/dev/stdin")))
 
+(use-package gotest
+  :ensure t)
+
 (use-package eglot
   :ensure t
   :custom
