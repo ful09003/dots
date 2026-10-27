@@ -52,6 +52,9 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+;; General settings
+(setq-default require-final-newline 'visit-save)
+
 ;; Requires nerd font mono to be installed
 ;; (usually under .local/share/fonts/symbolsnerdfont)
 ;; https://github.com/rainstormstudio/nerd-icons.el
